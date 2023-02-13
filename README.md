@@ -80,3 +80,11 @@ This fork is made possible because of the following projects. Spread some love â
 ## Source
 
 - [fast-cli](https://github.com/sindresorhus/fast-cli) - Test your download and upload speed using fast.com
+
+```diff
+- removed react/ink
++ file output option
++ interval mode
++ tsup single file bundle
++ typescript
+```
