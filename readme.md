@@ -6,13 +6,13 @@
 
 ## Install
 
-Ensure you have [Node.js](https://nodejs.org) version 12.20+ installed. Then run the following:
+Ensure you have [Node.js](https://nodejs.org) version 14+ installed. Then run the following:
 
 ```sh
 npm install --global fast-cli
 ```
 
-*This project uses Puppeteer under the hood. Most [install issues](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md) are related to that.*
+_This project uses Puppeteer under the hood. Most [install issues](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md) are related to that._
 
 ## Usage
 
@@ -20,25 +20,32 @@ npm install --global fast-cli
 $ fast --help
 
   Usage
-    $ fast
-    $ fast > file
+    $ fast [options]
 
-  Options
-    --upload, -u   Measure upload speed in addition to download speed
-    --single-line  Reduce spacing and output to a single line
-    --json         JSON output
+	Options
+    --debug            Show cli options information
+    --interval, -i     Bandwidth interval test (in minutes)
+    --json             JSON output
+    --json-file, -o    Output to json file
+    --single-line, -s  Reduce spacing and output to a single line
+    --upload, -u       Disable upload speed measurement
 
   Examples
-    $ fast --upload > file && cat file
-    17 Mbps
-    4.4 Mbps
+    $ fast --upload
+    93 Mbps ↓ / 13 Mbps ↑
 
     $ fast --upload --json
+
+    $ fast --upload --interval 10 --json-file fast.json
 ```
 
 ##### Upload speed
 
-<img src="screenshot-upload.gif" width="500" height="260">
+<img src="screenshot-upload.gif" width="500">
+
+##### Interval mode
+
+<img src="screenshot-interval.png" width="500">
 
 ##### JSON output
 
@@ -50,17 +57,26 @@ fast --upload --json
 
 ```json
 {
-	"downloadSpeed": 52,
-	"uploadSpeed": 64,
-	"downloaded": 270,
-	"uploaded": 290,
-	"latency": 9,
-	"bufferBloat": 46,
-	"userLocation": "Somewhere, NO",
-	"userIp": "49.222.206.21"
+  "date": "2023-02-13T12:43:43.738Z",
+  "downloadSpeed": 92,
+  "uploadSpeed": 13,
+  "downloaded": 100,
+  "uploaded": 60,
+  "latency": 7,
+  "bufferBloat": 18,
+  "userLocation": "Somewhere, NO",
+  "userIp": "49.222.206.21"
 }
 ```
 
-## Related
+## Technology
 
-- [speed-test](https://github.com/sindresorhus/speed-test) - Test your internet connection speed and ping using speedtest.net
+This fork is made possible because of the following projects. Spread some love ❤️
+
+- [ora](https://github.com/sindresorhus/ora) - "Elegant terminal spinner"
+- [terminalizer](https://github.com/faressoft/terminalizer) - "Record your terminal and generate animated gif images or share a web player "
+- [tsup](https://github.com/egoist/tsup) - "The simplest and fastest way to bundle your TypeScript libraries.""
+
+## Source
+
+- [fast-cli](https://github.com/sindresorhus/fast-cli) - Test your download and upload speed using fast.com
