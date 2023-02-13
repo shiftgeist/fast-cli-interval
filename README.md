@@ -9,7 +9,7 @@
 Ensure you have [Node.js](https://nodejs.org) version 14+ installed. Then run the following:
 
 ```sh
-npm install --global fast-cli
+npm install --global https://github.com/shiftgeist/fast-cli-interval
 ```
 
 _This project uses Puppeteer under the hood. Most [install issues](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md) are related to that._
