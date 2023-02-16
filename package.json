@@ -21,6 +21,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
+    "prepack": "npm run build",
     "test": "xo && ava"
   },
   "files": [
